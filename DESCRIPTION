@@ -5,19 +5,32 @@ Date: 2016-02-11
 Author: Nirav V Malani <malnirav@gmail.com>
 Maintainer: Nirav V Malani <malnirav@gmail.com>
 Description: hiReadsProcessor contains set of functions which allow
-        users to process LM-PCR products sequenced using any platform.
-        Given an excel/txt file containing parameters for
-        demultiplexing and sample metadata, the functions automate
-        trimming of adaptors and identification of the genomic product.
-        Genomic products are further processed for QC and abundance
-        quantification.
-Depends: Biostrings, GenomicAlignments, xlsx, BiocParallel,
-         hiAnnotator, R (>= 3.0)
-Imports: sonicLength, dplyr, BiocGenerics, GenomicRanges (>= 1.23.16),
-        rSFFreader, methods
+    users to process LM-PCR products sequenced using any platform.
+    Given an excel/txt file containing parameters for
+    demultiplexing and sample metadata, the functions automate
+    trimming of adaptors and identification of the genomic product.
+    Genomic products are further processed for QC and abundance
+    quantification.
+Depends:
+    Biostrings,
+    GenomicAlignments,
+    xlsx, 
+    BiocParallel,
+    hiAnnotator,
+    R (>= 3.0)
+Imports:
+    sonicLength,
+    dplyr,
+    BiocGenerics,
+    GenomicRanges,
+    rSFFreader,
+    readxl,
+    methods
 License: GPL-3
 VignetteBuilder: knitr
-Suggests: knitr, testthat
+Suggests:
+    knitr,
+    testthat
 biocViews: Sequencing, Preprocessing
 LazyLoad: yes
 SystemRequirements: BLAT, UCSC hg18 in 2bit format for BLAT

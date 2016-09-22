@@ -5410,16 +5410,19 @@ getIntegrationSites <- function(psl.rd = NULL, startWithin = 3,
 #'
 #' @export
 #'
+#' @importFrom dplyr count arrange summarise rename mutate select ungroup
+#' group_by bind_rows left_join contains desc n %>%
+#'
 #' @examples
-#' \donttest{
-#' clusterSites(posID=c('chr1-','chr1-','chr1-','chr2+','chr15-',
-#' 'chr16-','chr11-'), value=c(rep(1000,2),5832,1000,12324,65738,928042), 
-#' grouping=c('a','a','a','b','b','b','c'))
+#' clusterSites(posID = c('chr1-', 'chr1-', 'chr1-', 'chr2+', 'chr15-', 
+#' 'chr16-','chr11-'), value = c(rep(1000, 2), 5832, 1000, 12324, 65738, 928042), 
+#' grouping = c('a', 'a', 'a', 'b', 'b', 'b', 'c'), parallel = FALSE)
+#' \dontrun{
 #' data(psl)
-#' psl <- psl[sample(nrow(psl),100),]
+#' psl <- psl[sample(nrow(psl), 100), ]
 #' psl.rd <- getIntegrationSites(pslToRangedObject(psl))
-#' psl.rd$grouping <- sub("(.+)-.+","\\1",psl.rd$qName)
-#' clusterSites(grouping=psl.rd$grouping, psl.rd=psl.rd)
+#' psl.rd$grouping <- sub("(.+)-.+", "\\1", psl.rd$qName)
+#' clusterSites(grouping = psl.rd$grouping, psl.rd = psl.rd)
 #' }
 clusterSites <- function(posID = NULL, value = NULL, grouping = NULL, 
                          psl.rd = NULL, weight = NULL, windowSize = 5L, 
@@ -5789,11 +5792,14 @@ clusterSites <- function(posID = NULL, value = NULL, grouping = NULL,
 #'
 #' @export
 #'
+#' @importFrom dplyr count arrange summarise rename mutate select ungroup
+#' group_by bind_rows left_join desc n %>%
+#'
 #' @examples 
-#' otuSites(posID=c('chr1-','chr1-','chr1-','chr2+','chr15-','chr16-','chr11-'), 
-#' value=c(1000,1003,5832,1000,12324,65738,928042), 
-#' readID=paste('read',sample(letters,7),sep='-'), 
-#' grouping=c('a','a','a','b','b','b','c'), parallel=FALSE)
+#' otuSites(posID = c('chr1-', 'chr1-', 'chr1-', 'chr2+', 'chr15-', 'chr16-', 'chr11-'),
+#' value = c(1000, 1003, 5832, 1000, 12324, 65738, 928042), 
+#' readID = paste('read', sample(letters, 7), sep = '-'), 
+#' grouping = c('a', 'a', 'a', 'b', 'b', 'b', 'c'), parallel = FALSE)
 otuSites <- function(posID = NULL, value = NULL, readID = NULL, grouping = NULL,
                      psl.rd = NULL, maxgap = 5, parallel = TRUE) {
   clusteredValue <- dp <- NULL
@@ -6163,10 +6169,13 @@ isuSites <- function(posID = NULL, value = NULL, readID = NULL, grouping = NULL,
 #'
 #' @export
 #'
+#' @importFrom dplyr count arrange summarise rename mutate select ungroup
+#' group_by bind_rows left_join desc n %>%
+#'
 #' @examples 
-#' crossOverCheck(posID=c('chr1-','chr1-','chr1-','chr1-','chr2+','chr15-','
-#' chr16-','chr11-'), value=c(rep(1000,3),5832,1000,12324,65738,928042), 
-#' grouping=c('a','a','b','b','b','b','c','c'))
+#' crossOverCheck(posID = c('chr1-', 'chr1-', 'chr1-', 'chr1-', 'chr2+', 'chr15-', 
+#' 'chr16-', 'chr11-'), value = c(rep(1000, 3), 5832, 1000, 12324, 65738, 928042), 
+#' grouping = c('a', 'a', 'b', 'b', 'b', 'b', 'c', 'c'))
 crossOverCheck <- function(posID = NULL, value = NULL, grouping = NULL,
                            weight = NULL, windowSize = 1, psl.rd = NULL) {
   
