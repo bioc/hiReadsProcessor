@@ -2,6 +2,7 @@
 % Please edit documentation in R/hiReadsProcessor.R
 \docType{package}
 \name{hiReadsProcessor}
+\alias{hiReadsProcessor-package}
 \alias{hiReadsProcessor}
 \title{Functions to process LM-PCR reads from 454/Illumina data}
 \description{

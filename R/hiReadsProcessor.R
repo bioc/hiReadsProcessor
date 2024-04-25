@@ -6,14 +6,18 @@
 #' automate trimming of adaptors and identification of the genomic product.
 #' Genomic products are further processed for QC and abundance quantification.
 #'
-#' @import BiocParallel Biostrings GenomicAlignments hiAnnotator 
-#' sonicLength BiocGenerics GenomicRanges
+#' @import BiocParallel BiocGenerics GenomicRanges GenomicAlignments
+#' hiAnnotator sonicLength
+#' @importFrom Biostrings DNAString DNAStringSet subseq reverseComplement
+#' alphabetFrequency readDNAStringSet readBStringSet writeXStringSet
+#' vcountPattern vmatchPattern pattern nchar
+#' @importFrom pwalign pairwiseAlignment
 #' @importFrom readxl read_excel
 #' @importFrom dplyr count arrange summarise rename mutate select ungroup
 #' group_by bind_rows left_join desc n %>% contains
 #' @importFrom methods as is
 #' @importFrom stats aggregate ave filter na.omit runif
-#' @importFrom utils count.fields read.delim write.table
+#' @importFrom utils count.fields read.delim write.table head
 #' @docType package
 #' @name hiReadsProcessor
 #' @author Nirav V Malani
